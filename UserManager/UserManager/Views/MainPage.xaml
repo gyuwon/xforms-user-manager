@@ -2,5 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UserManager.Views.MainPage">
-  <Label Text="Hello Xamarin Forms" VerticalOptions="Center" HorizontalOptions="Center" />
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+
+      <Entry Grid.Column="0"
+             Placeholder="Name" />
+
+      <Button Grid.Column="1"
+              BackgroundColor="Gray"
+              TextColor="White"
+              WidthRequest="100"
+              Text="Add" />
+    </Grid>
+
+    <ListView Grid.Row="1" />
+  </Grid>
 </ContentPage>
