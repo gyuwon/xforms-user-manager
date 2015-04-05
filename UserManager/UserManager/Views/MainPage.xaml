@@ -29,6 +29,14 @@
               Text="Add" />
     </Grid>
 
-    <ListView Grid.Row="1" />
+    <ListView Grid.Row="1">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Label />
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
   </Grid>
 </ContentPage>
