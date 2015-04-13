@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Xamarin.Forms;
 
@@ -12,7 +13,7 @@ namespace UserManager.ViewModels
 
         public MainViewModel()
         {
-            _users = new List<UserViewModel>
+            _users = new ObservableCollection<UserViewModel>
             {
                 new UserViewModel { Name = "Obiwan Kenobi" }
             };
