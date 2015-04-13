@@ -70,5 +70,19 @@ namespace UserManager.Tests.ViewModels
             // Assert
             viewModel.Users.ShouldRaise("CollectionChanged");
         }
+
+        [TestMethod]
+        public void AddCommandShouldDisabledWhereNameEntryEmpty()
+        {
+            // Arrange
+            var viewModel = new MainViewModel();
+            viewModel.NameEntry = string.Empty;
+
+            // Act
+            var actual = viewModel.Add.CanExecute(parameter: null);
+
+            // Assert
+            actual.Should().BeFalse();
+        }
     }
 }
