@@ -30,7 +30,13 @@ namespace UserManager.ViewModels
         public string NameEntry
         {
             get { return _nameEntry; }
-            set { SetProperty(ref _nameEntry, value); }
+            set
+            {
+                if (true == SetProperty(ref _nameEntry, value))
+                {
+                    Add.ChangeCanExecute();
+                }
+            }
         }
 
         public ICollection<UserViewModel> Users { get { return _users; } }
