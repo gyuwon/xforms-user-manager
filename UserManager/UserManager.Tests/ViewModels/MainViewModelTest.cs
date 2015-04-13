@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UserManager.ViewModels;
@@ -35,6 +36,23 @@ namespace UserManager.Tests.ViewModels
 
             // Assert
             viewModel.ShouldRaisePropertyChangeFor(vm => vm.NameEntry);
+        }
+
+        [TestMethod]
+        public void UserShouldBeAddedToUsersWhenAddCommandExecuted()
+        {
+            // Arrange
+            var viewModel = new MainViewModel();
+            var userName = new Random().Next().ToString();
+            viewModel.NameEntry = userName;
+            var userCountBeforeExecution = viewModel.Users.Count;
+
+            // Act
+            viewModel.Add.Execute(parameter: null);
+
+            // Assert
+            viewModel.Users.Count.Should().Be(userCountBeforeExecution + 1);
+            viewModel.Users.Last().Name.Should().Be(userName);
         }
     }
 }

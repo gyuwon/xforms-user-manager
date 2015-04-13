@@ -26,7 +26,7 @@ namespace UserManager.ViewModels
             set { SetProperty(ref _nameEntry, value); }
         }
 
-        public IEnumerable<UserViewModel> Users { get { return _users; } }
+        public ICollection<UserViewModel> Users { get { return _users; } }
 
         public Command Add { get; private set; }
     }
