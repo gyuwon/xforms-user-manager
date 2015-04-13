@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -53,6 +54,21 @@ namespace UserManager.Tests.ViewModels
             // Assert
             viewModel.Users.Count.Should().Be(userCountBeforeExecution + 1);
             viewModel.Users.Last().Name.Should().Be(userName);
+        }
+
+        [TestMethod]
+        public void CollectionChangedShouldBeRaisedWhenUserAdded()
+        {
+            // Arrange
+            var viewModel = new MainViewModel();
+            var userCountBeforeExecution = viewModel.Users.Count;
+            viewModel.Users.MonitorEvents();
+
+            // Act
+            viewModel.Users.Add(new UserViewModel());
+
+            // Assert
+            viewModel.Users.ShouldRaise("CollectionChanged");
         }
     }
 }
