@@ -84,5 +84,20 @@ namespace UserManager.Tests.ViewModels
             // Assert
             actual.Should().BeFalse();
         }
+
+        [TestMethod]
+        public void AddCommandShouldRaiseCanExecuteChangedWhenNameEntryChanged()
+        {
+            // Arrange
+            var viewModel = new MainViewModel();
+            viewModel.NameEntry = new Random().Next().ToString();
+            viewModel.Add.MonitorEvents();
+
+            // Act
+            viewModel.NameEntry = string.Empty;
+
+            // Assert
+            viewModel.Add.ShouldRaise("CanExecuteChanged");
+        }
     }
 }
