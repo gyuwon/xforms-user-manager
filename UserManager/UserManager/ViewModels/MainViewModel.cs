@@ -19,11 +19,12 @@ namespace UserManager.ViewModels
             };
 
             Add = new Command(
-                execute: () =>
-                {
-                    _users.Add(new UserViewModel { Name = _nameEntry });
-                    NameEntry = string.Empty;
-                });
+                canExecute: () => string.IsNullOrEmpty(_nameEntry) == false,
+                   execute: () =>
+                   {
+                       _users.Add(new UserViewModel { Name = _nameEntry });
+                       NameEntry = string.Empty;
+                   });
         }
 
         public string NameEntry
