@@ -16,7 +16,7 @@ namespace UserManager.ViewModels
                 new UserViewModel { Name = "Obiwan Kenobi" }
             };
 
-            Add = new Command(execute: () => Debug.WriteLine(NameEntry));
+            Add = new Command(execute: () => NameEntry = string.Empty);
         }
 
         public string NameEntry { get; set; }
