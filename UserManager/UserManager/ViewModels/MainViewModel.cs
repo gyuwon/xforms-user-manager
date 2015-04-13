@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace UserManager.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : ViewModel
     {
         private readonly ICollection<UserViewModel> _users;
 

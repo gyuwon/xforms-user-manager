@@ -21,5 +21,20 @@ namespace UserManager.Tests.ViewModels
             // Assert
             viewModel.NameEntry.Should().BeNullOrEmpty();
         }
+
+        [TestMethod]
+        public void PropertyChangedForNameEntryShouldBeRaisedWhenNameEntryChanged()
+        {
+            // Arrange
+            var viewModel = new MainViewModel();
+            viewModel.NameEntry = new Random().Next().ToString();
+            viewModel.MonitorEvents();
+
+            // Act
+            viewModel.NameEntry = string.Empty;
+
+            // Assert
+            viewModel.ShouldRaisePropertyChangeFor(vm => vm.NameEntry);
+        }
     }
 }
