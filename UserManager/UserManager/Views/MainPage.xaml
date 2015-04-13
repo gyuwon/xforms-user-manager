@@ -20,20 +20,23 @@
       </Grid.ColumnDefinitions>
 
       <Entry Grid.Column="0"
-             Placeholder="Name" />
+             Placeholder="Name"
+             Text="{Binding NameEntry}" />
 
       <Button Grid.Column="1"
               BackgroundColor="Gray"
               TextColor="White"
               WidthRequest="100"
-              Text="Add" />
+              Text="Add"
+              Command="{Binding Add}" />
     </Grid>
 
-    <ListView Grid.Row="1">
+    <ListView Grid.Row="1"
+              ItemsSource="{Binding Users}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <Label />
+            <Label Text="{Binding Name}" />
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>

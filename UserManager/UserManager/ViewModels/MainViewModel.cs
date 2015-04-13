@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace UserManager.ViewModels
@@ -15,7 +16,7 @@ namespace UserManager.ViewModels
                 new UserViewModel { Name = "Obiwan Kenobi" }
             };
 
-            Add = new Command(execute: () => { });
+            Add = new Command(execute: () => Debug.WriteLine(NameEntry));
         }
 
         public string NameEntry { get; set; }

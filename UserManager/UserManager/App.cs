@@ -1,4 +1,5 @@
 ﻿using System;
+using UserManager.ViewModels;
 using UserManager.Views;
 using Xamarin.Forms;
 
@@ -9,7 +10,7 @@ namespace UserManager
         public App()
         {
             // The root page of your application
-            MainPage = new MainPage();
+            MainPage = new MainPage { BindingContext = new MainViewModel() };
         }
 
         protected override void OnStart()
