@@ -7,6 +7,7 @@ namespace UserManager.ViewModels
 {
     public class MainViewModel : ViewModel
     {
+        private string _nameEntry;
         private readonly ICollection<UserViewModel> _users;
 
         public MainViewModel()
@@ -19,7 +20,11 @@ namespace UserManager.ViewModels
             Add = new Command(execute: () => NameEntry = string.Empty);
         }
 
-        public string NameEntry { get; set; }
+        public string NameEntry
+        {
+            get { return _nameEntry; }
+            set { SetProperty(ref _nameEntry, value); }
+        }
 
         public IEnumerable<UserViewModel> Users { get { return _users; } }
 
